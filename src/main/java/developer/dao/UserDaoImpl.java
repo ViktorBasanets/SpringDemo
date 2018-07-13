@@ -1,7 +1,6 @@
 package developer.dao;
 
 import developer.model.User;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,10 +20,10 @@ public class UserDaoImpl implements UserDao {
     public UserDaoImpl(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
-*/
+
     @Override
     public User addUser(User user) {
-        /*this.jdbcTemplate.update(
+        this.jdbcTemplate.update(
                 "INSERT INTO USERS (FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, TOKEN) VALUES (?, ?, ?, ?, ?)",
                 user.getFirstName(),
                 user.getLastName(),
@@ -32,21 +31,31 @@ public class UserDaoImpl implements UserDao {
                 user.getPassword(),
                 user.getToken()
         );
-        return getByEmail(user);*/
-        //user.setId(null);
-        Session session = sessionFactory.getCurrentSession();
-        session.save("User", user);
+        return getByEmail(user);
+}
 
-        return user;
-    }
+*/
 
     @Override
+    public User addUser(User user) {
+        sessionFactory.getCurrentSession().save(user);
+        return getByEmail(user);
+    }
+
+    /*@Override
     public User getByEmail(User user) {
-        User u = sessionFactory.getCurrentSession()
+        user.setId(19L);
+        return sessionFactory
+                .getCurrentSession()
+                .get(User.class, user.getId());
+    }
+*/
+    @Override
+    public User getByEmail(User user) {
+        return sessionFactory.getCurrentSession()
                 .createQuery("from User u where u.email =: email", User.class)
                 .setParameter("email", user.getEmail())
                 .uniqueResult();
-        return u;
     }
 
     /*@Override
