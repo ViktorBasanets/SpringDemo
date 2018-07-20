@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="container">
-        <spring:form class="form-signin" modelAttribute="user">
+        <spring:form class="form-signin" action="/signup" modelAttribute="user">
             <h3 class="form-signin-heading">Input your first name</h3>
             <spring:input path="firstName" type="firstName" class="form-control" placeholder="First Name"/>
             <h3 class="form-signin-heading">Input your last name</h3>
@@ -25,7 +25,7 @@
             <spring:input path="email" type="email" class="form-control" placeholder="Email address"/>
             <h3 class="form-signin-heading">Enter password</h3>
             <spring:input path="password" type="password" class="form-control" placeholder="Password"/>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </spring:form>
     </div>
 </body>

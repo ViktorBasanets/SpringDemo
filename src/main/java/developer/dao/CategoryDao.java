@@ -1,11 +1,10 @@
-package developer.service;
+package developer.dao;
 
 import developer.model.Category;
 
 import java.util.List;
 
-public interface CategoryService {
+public interface CategoryDao {
     List<Category> getAll();
-
     Category getById(Long id);
 }

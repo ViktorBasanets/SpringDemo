@@ -15,18 +15,18 @@
 
         <link href="<c:url value="/resources/static/css/signin.css"/>" rel="stylesheet">
 
-
+        <%--action="/signup"--%>
     </head>
     <body>
         <div class="container">
-            <spring:form class="form-signin" modelAttribute="user">
-                <h2 class="form-signin-heading">Please sign in</h2>
+            <spring:form class="form-signin" action="/login" modelAttribute="user">
+                <h2 class="form-signin-heading">Please login</h2>
                 <spring:input path="email" type="email" class="form-control" placeholder="Email address"/>
                 <spring:input path="password" type="password" class="form-control" placeholder="Password"/>
                 <label class="checkbox">
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
             </spring:form>
         </div>
     </body>

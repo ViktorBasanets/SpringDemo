@@ -11,7 +11,7 @@
     <title>Welcome</title>
 </head>
 <body>
-    <h1>Welcome "${user.email}"</h1>
+    <h1>Welcome to "${user.email}"</h1>
     <h2>  - you're "${user.firstName}" "${user.lastName}"</h2>
     <h2>  - your password - "${user.password}"</h2>
 </body>

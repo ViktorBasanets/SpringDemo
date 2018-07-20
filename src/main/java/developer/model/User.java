@@ -1,28 +1,35 @@
 package developer.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "USERS")
 public class User implements Serializable {
 
     @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(name = "FIRST_NAME")
     private String firstName;
+
     @Column(name = "LAST_NAME")
     private String lastName;
+
     @Column(name = "EMAIL")
     private String email;
+
     @Column(name = "PASSWORD")
     private String password;
+
     @Column(name = "TOKEN")
     private String token;
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "users")
+    private List<Role> rools = new ArrayList<>();
 
     public User() {
     }
@@ -81,5 +88,13 @@ public class User implements Serializable {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public List<Role> getRools() {
+        return rools;
+    }
+
+    public void setRools(List<Role> rools) {
+        this.rools = rools;
     }
 }

@@ -14,11 +14,15 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private MailService mailService;
+
     @Override
     public User addUser(User user) {
         String hashedPassword = hasPassword(user.getPassword());
         user.setPassword(hashedPassword);
         user.setToken(generateToken());
+        mailService.notify(user);
         return userDao.addUser(user);
     }
 
@@ -26,6 +30,8 @@ public class UserServiceImpl implements UserService {
     public User getByEmail(User user) {
         return userDao.getByEmail(user);
     }
+
+
 
     private String hasPassword(String password) {
         return String.valueOf(Objects.hash(password));
