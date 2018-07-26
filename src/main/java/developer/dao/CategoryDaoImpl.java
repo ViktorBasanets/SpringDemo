@@ -24,10 +24,10 @@ public class CategoryDaoImpl implements CategoryDao {
 
     @Override
     public Category getById(Long id) {
-        return (Category) sessionFactory.getCurrentSession()
+        return sessionFactory.getCurrentSession()
                 .createQuery("select c from Category c" +
                         " join fetch c.productList p" +
-                        " where c.id =: id")
+                        " where c.id =: id", Category.class)
                 .setParameter("id", id)
                 .uniqueResult();
     }

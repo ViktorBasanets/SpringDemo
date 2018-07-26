@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Home Page</title>
+    <%@include file="header.jsp"%>
 </head>
 <body>
     <h1>Hello from Spring</h1>

@@ -1,5 +1,6 @@
 package developer.controller;
 
+import developer.model.Product;
 import developer.model.User;
 import developer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

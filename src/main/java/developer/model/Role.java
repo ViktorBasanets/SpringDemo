@@ -17,11 +17,9 @@ public class Role {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "USER_TO_ROLE",
             joinColumns = {
-                @JoinColumn(name = "FK_ROLE_ID", nullable = false)
-            },
+                @JoinColumn(name = "FK_ROLE_ID", nullable = false) },
             inverseJoinColumns = {
-                @JoinColumn(name = "FK_USER_ID", nullable = false)
-            })
+                @JoinColumn(name = "FK_USER_ID", nullable = false) })
     private List<User> users = new ArrayList<>();
 
     public Long getId() {

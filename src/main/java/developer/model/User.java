@@ -28,8 +28,11 @@ public class User implements Serializable {
     @Column(name = "TOKEN")
     private String token;
 
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    private Cart cart;
+
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "users")
-    private List<Role> rools = new ArrayList<>();
+    private List<Role> roles = new ArrayList<>();
 
     public User() {
     }
@@ -90,11 +93,19 @@ public class User implements Serializable {
         this.token = token;
     }
 
-    public List<Role> getRools() {
-        return rools;
+    public List<Role> getRoles() {
+        return roles;
     }
 
-    public void setRools(List<Role> rools) {
-        this.rools = rools;
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 }

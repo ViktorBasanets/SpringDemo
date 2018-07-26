@@ -9,6 +9,8 @@
 <html>
 <head>
     <title>Welcome</title>
+
+    <%@include file="header.jsp"%>
 </head>
 <body>
     <h1>Welcome to "${user.email}"</h1>

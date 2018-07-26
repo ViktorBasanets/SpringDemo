@@ -104,9 +104,6 @@ public class ApplicationConfiguration
         props.put("mail.smtp.starttls.enable", env.getProperty("email.tls"));
         props.put("mail.debug", env.getProperty("email.debug"));
 
-        Object object;
-
         return ms;
-
     }
 }

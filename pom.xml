@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>developer</groupId>
-    <artifactId>SpringDemo</artifactId>
+    <artifactId>Web-App-With-Spring-Framework</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 

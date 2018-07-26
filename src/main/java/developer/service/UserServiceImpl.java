@@ -31,7 +31,10 @@ public class UserServiceImpl implements UserService {
         return userDao.getByEmail(user);
     }
 
+    public User validateCredentials(User user) {
 
+        return getByEmail(user).equals(null) ? null : user;
+    }
 
     private String hasPassword(String password) {
         return String.valueOf(Objects.hash(password));
